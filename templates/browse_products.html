@@ -1,0 +1,39 @@
+
+<head>
+  <!-- Other head elements -->
+
+  <!-- Bootstrap CSS via CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Additional custom stylesheets or scripts -->
+</head>
+<h2>Categories:</h2>
+<a href="{% url 'view_cart'%}"><h3 style="text-align:right;">View Cart</h3></a>
+
+<ul>
+  {% for category in categories %}
+    <li><a href="{% url 'view_category_products' category.id %}">{{ category.name }}</a></li>
+  {% endfor %}
+</ul>
+
+<h2>Products:</h2>
+<br>
+<br>
+
+
+  <div class="row">
+    {% for product in products %}
+      <div class="col-md-3">
+        <div class="product-item">
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+          <h2>{{ product.name }}</h2>
+          <p>{{ product.description }}</p>
+          <p>Price: ${{ product.price }}</p>
+          <p>Stock: {{ product.stock }}</p>
+          <a href="{% url 'add_to_cart' product.id %}">Add to Cart</a><br><br>
+          <button> BuyNow</button>
+        </div><br><br><br>
+      </div>
+      {% cycle "" "" "" "</div><div class='row'>" %}
+    {% endfor %}
+  </div>

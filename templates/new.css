@@ -1,0 +1,15 @@
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Create three equal columns */
+    gap: 10px; /* Adjust the gap between images as needed */
+  }
+  
+  .image-item {
+    text-align: center;
+  }
+  
+  .image-item img {
+    max-width: 100%; /* Adjust the image size as needed */
+    height: auto;
+  }
+  

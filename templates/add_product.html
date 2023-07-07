@@ -1,0 +1,46 @@
+
+<center><table>
+<form method="POST" enctype="multipart/form-data">
+  
+    {% csrf_token %}
+  <tr>
+    <th><label for="category">Category:</label></th>
+    <td><select name="category" id="category">
+      {% for category in categories %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+      {% endfor %}
+    </select></td>
+  </tr>
+    <tr>
+      <th><label for="name">Name:</label></th><td><input type="text" name="name" required><br></td>
+  </tr>
+  <tr>
+    <th><label for="description">Description:</label></th>
+    <td><textarea name="description" required></textarea><br></td>
+  </tr>
+    <tr>
+      <th><label for="price">Price:</label></th><td><input type="number" name="price" step="0.01" required></td>
+  </tr>
+  <tr>
+    <th><label for="stock">Stock:</label></th>
+    <td><input type="number" name="stock" required></td>
+  </th>
+  <tr>
+    <th><label for="image">Image:</label></th>
+    <td><input type="file" name="image" required><br></td>
+  </tr><br>
+ 
+  
+  <tr>
+    <th>
+      <div style="margin-left: 159px;margin-top: 20px;">
+        <button type="submit">Add Product</button>
+      </div>
+    </th>
+    
+  </tr>
+ 
+  </form>
+
+</table>
+</center>

@@ -1,0 +1,15 @@
+<h2>Orders:</h2>
+{% for order in orders %}
+  <div>
+    <h3>Order by {{ order.buyer.user.username }}</h3>
+    <p>Ordered at: {{ order.ordered_at }}</p>
+    {% for product in order.products.all %}
+      <div>
+        <h4>{{ product.name }}</h4>
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price }}</p>
+        <p>Stock: {{ product.stock }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}

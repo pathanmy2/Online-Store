@@ -1,0 +1,31 @@
+<h2>Products:</h2><br><br>
+
+
+<head>
+  <!-- Other head elements -->
+
+  <!-- Bootstrap CSS via CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  
+</head>
+
+
+
+
+
+<div class="row">
+  {% for product in products %}
+    <div class="col-md-3">
+      <div class="product-item">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price }}</p>
+        <p>Stock: {{ product.stock }}</p>
+       
+      </div><br><br><br>
+    </div>
+    {% cycle "" "" "" "</div><div class='row'>" %}
+  {% endfor %}
+</div>
